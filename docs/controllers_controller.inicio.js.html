@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: controllers/controller.inicio.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: controllers/controller.inicio.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { db } from "../config/.db.mysql"
+import { Success, Error } from "../message/msj"
+import bcrypt, { compare } from "bcrypt";
+import jwt from "jsonwebtoken";
+import { config } from "dotenv";
+config()
+
+/**
+ * Esta funcion sirve para registrar los usuarios
+ * @param {object} req captura la peticio en HTML
+ * @param {object} res envia peticiones en HTML
+ * @returns 
+ */
+
+ const registro = async(req,res) => {
+    const {id, nombre, telefono, correo, roll} = req.body
+    const { contrasena } = req.body
+    const clave = contrasena;
+    
+    try {
+
+        // verificacion de la cuenta 
+        const repp = await db.query(`CALL SP_VERIFICAR_EXISTENCIA_DE_CUENTA('${id}', '${correo}')`);
+
+        if(repp[0][0] != 0){
+            Error(req, res, 401, "El usuario ya existe")
+            return;
+        }
+
+        // encriptacion de la clave 
+        const hash = await bcrypt.hash(clave, 2)
+        const claveCifrada = hash;
+
+        const respuesta = await db.query(`CALL SP_REGISTRAR_USER('${id}', '${nombre}',
+        '${telefono}', '${correo}', '${claveCifrada}', '${roll}')`);
+
+        console.log(respuesta[0]);
+
+        if(respuesta[0].affectedRows == 1){
+
+            Success(req, res, 200, "Se ha registrado correctamente")
+            
+        }else{
+            Error(req, res, 400, "Error, intentalo de nuevo más tarde")
+        }
+
+    } catch (error) {
+        Error(req, res, 401, error)
+    }
+}
+
+/**
+ * Esta funcion sirve para loguear los usuarios
+ * @param {object} req captura la peticio en HTML
+ * @param {object} res envia peticiones en HTML
+ * @returns 
+ */
+        
+ const loguear = async(req, res) => {
+    const { correo, contrasena} = req.body;
+    
+    try{
+
+        const repp = await db.query(`CALL SP_LOGUEAR_ADMIN('${correo}')`)
+
+        if(repp[0][0] != 0){
+            // se comparan las contraseñas 
+            const compare = await bcrypt.compare(contrasena, repp[0][0][0].contrasena)
+
+            // mensaje de clave errada 
+            if(!compare){
+                Error(req, res,400, "Clave errada")
+            }
+    
+            Success(req, res, 200, "Acceso no perimitido");
+            return;
+        }
+
+        const respuesta = await db.query(`CALL SP_LOGUEAR_USUARIO('${correo}')`)
+        console.log(respuesta[0]);
+        //para decir si el usuario no existe
+        if (respuesta[0][0] == 0){
+            Error(req, res, 400, "El usuario no existe todavia ")
+            return;
+        }
+            
+        //para compara las dos claves encriptadas
+        const match = await bcrypt.compare(contrasena, respuesta[0][0][0].contrasena)
+            
+        if(!match){
+            Error(req, res, 401, "Contraseña errada")
+            return;
+        }
+        console.log(3);
+        
+        //token
+        let pyload = {
+            "correo" : correo
+        };
+        
+        let token = jwt.sign (
+            pyload,
+            process.env.TOKEN_PRIVATEKEY,
+            {
+                expiresIn : process.env.TOKEN_EXPIRES_IN
+            }
+        )
+        let id = respuesta[0][0][0].identificacion;
+
+        Success(req, res, 200, {token , id});
+        return;
+                
+    }catch(err){
+        Error(req, res, 500, JSON.stringify({message : "Error en el servidor, por favor intentar más tarde"}));
+    }
+}
+
+export {registro, loguear}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#Error">Error</a></li><li><a href="global.html#Success">Success</a></li><li><a href="global.html#actualizarContra">actualizarContra</a></li><li><a href="global.html#actualizarCorreo">actualizarCorreo</a></li><li><a href="global.html#actualizarNombre">actualizarNombre</a></li><li><a href="global.html#actualizarTelefono">actualizarTelefono</a></li><li><a href="global.html#app">app</a></li><li><a href="global.html#cancelarCita">cancelarCita</a></li><li><a href="global.html#crearCita">crearCita</a></li><li><a href="global.html#crearCorte">crearCorte</a></li><li><a href="global.html#crearProductos">crearProductos</a></li><li><a href="global.html#crearRese%25C3%25B1as">crearReseñas</a></li><li><a href="global.html#crearServicio">crearServicio</a></li><li><a href="global.html#crearTarjeta">crearTarjeta</a></li><li><a href="global.html#eliminarCorte">eliminarCorte</a></li><li><a href="global.html#eliminarCuenta">eliminarCuenta</a></li><li><a href="global.html#eliminarProductos">eliminarProductos</a></li><li><a href="global.html#eliminarRese%25C3%25B1as">eliminarReseñas</a></li><li><a href="global.html#eliminarServicio">eliminarServicio</a></li><li><a href="global.html#eliminarTarjeta">eliminarTarjeta</a></li><li><a href="global.html#loguear">loguear</a></li><li><a href="global.html#modificarCorreoBarbero">modificarCorreoBarbero</a></li><li><a href="global.html#mostarUnBarbero">mostarUnBarbero</a></li><li><a href="global.html#mostrarBarberos">mostrarBarberos</a></li><li><a href="global.html#mostrarCortes">mostrarCortes</a></li><li><a href="global.html#mostrarRese%25C3%25B1as">mostrarReseñas</a></li><li><a href="global.html#mostrarTodosClientes">mostrarTodosClientes</a></li><li><a href="global.html#mostrarTodosProductos">mostrarTodosProductos</a></li><li><a href="global.html#mostrarTodosServicios">mostrarTodosServicios</a></li><li><a href="global.html#mostrarUnCliente">mostrarUnCliente</a></li><li><a href="global.html#mostrarUnCorte">mostrarUnCorte</a></li><li><a href="global.html#mostrarUnProducto">mostrarUnProducto</a></li><li><a href="global.html#registro">registro</a></li><li><a href="global.html#reprogramarCita">reprogramarCita</a></li><li><a href="global.html#ruta">ruta</a></li><li><a href="global.html#rutaBarbero">rutaBarbero</a></li><li><a href="global.html#rutaCita">rutaCita</a></li><li><a href="global.html#rutaCliente">rutaCliente</a></li><li><a href="global.html#rutaCorte">rutaCorte</a></li><li><a href="global.html#rutaInicio">rutaInicio</a></li><li><a href="global.html#rutaProducto">rutaProducto</a></li><li><a href="global.html#rutaRese%25C3%25B1a">rutaReseña</a></li><li><a href="global.html#rutaServicio">rutaServicio</a></li><li><a href="global.html#validacionDatos">validacionDatos</a></li><li><a href="global.html#validarCuenta">validarCuenta</a></li><li><a href="global.html#validarToken">validarToken</a></li><li><a href="global.html#verifyToken">verifyToken</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Tue Jun 25 2024 18:51:23 GMT-0500 (hora estándar de Colombia)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
