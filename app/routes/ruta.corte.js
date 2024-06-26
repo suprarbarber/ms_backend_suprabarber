@@ -7,7 +7,7 @@ import { crearCorte, eliminarCorte, mostrarCortesServicio, mostrarTodosCortes, m
  */
 const rutaCorte = Router();
 
-rutaCorte.get("/corte", mostrarTodosCortes)
+// rutaCorte.get("/corte", mostrarTodosCortes)
 rutaCorte.get("/corte", mostrarCortesServicio)
 rutaCorte.get("/corte/:id", mostrarUnCorte)
 rutaCorte.post("/corte", crearCorte)
