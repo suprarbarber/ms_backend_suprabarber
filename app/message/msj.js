@@ -2,7 +2,7 @@
  * Esta funcion sirve para mostrar el mensaje en json de error
  * @param {object} req captura es la peticio en HTML
  * @param {object} res envia peticiones en HTML
- * @returns 
+ * @returns {void}
  */
 const Error = (req, res, status = 400, msj = "") => {
     res.status(status).json({
@@ -16,7 +16,7 @@ const Error = (req, res, status = 400, msj = "") => {
  * Esta funcion sirve para mostrar el mensaje en json de exito
  * @param {object} req captura es la peticio en HTML
  * @param {object} res envia peticiones en HTML
- * @returns 
+ * @returns {void}
  */
 const Success = (req, res, status = 200, msj = "") => {
     res.status(status).json({

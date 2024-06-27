@@ -26,6 +26,7 @@ const crearReseñas = async(req, res) => {
         Error(req, res, 400, error)
     }
 }
+
 /**
  * Esta funcion es para mostrar las reseñas
  * @param {*} req captura peticiones en HTML
@@ -41,6 +42,7 @@ const mostrarReseñas = async(req, res) => {
         Error(req, res, 400, error)
     }
 }
+
 /**
  * Esta funcion es para eliminar las reseñas
  * @param {*} req captura peticiones en HTML

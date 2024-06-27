@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: middleware/validacion.registro.js</title>
+    <title>JSDoc: Module: Rutas_reseñas</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,64 +17,208 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: middleware/validacion.registro.js</h1>
+    <h1 class="page-title">Module: Rutas_reseñas</h1>
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>
-
-import { check, validationResult } from "express-validator";
-import { Error } from "../message/msj"
-
-/**
- * Esta es una funcion que sirve para validar los datos enviados
- * @returns {void}
- */
-const validacionDatos = () => {
-
-    return [
         
-        // validacion del id 
-        check('id').isNumeric().trim().notEmpty().withMessage('El campo identificacion está vacio'),
-        // validacion del nombre 
-        check('nombre').notEmpty().withMessage('El campo nombre está vacio'),
-        //validacion del telefono
-        check('telefono').trim().notEmpty().withMessage('el campo telefono está vacio'),
-        // valiadacion del correo 
-        check('correo').isEmail().withMessage('Correo invalido'),
-        //validacion de la contaseña
-        check('contrasena').isLength({ min : 5}).withMessage('Debe tener minimo 5 caracteres'),
-        //validacion del roll
-        check('roll').notEmpty(),
-
-
-        (req, res, next) => {
             
-            const errors = validationResult(req);
+        
+    
+</header>
 
-            if(!errors.isEmpty()){
-                const checkerror = errors.array().map(error => error.msg)
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description">Rutas de las reseñas</div>
+        
 
-                Error(req, res, 400, checkerror);
-                return;
-            }
-            next();
-
-        }
-    ]
+        
+            
 
 
-}
 
-export { validacionDatos };
-</code></pre>
-        </article>
-    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="routes_ruta.rese%C3%B1a.js.html">routes/ruta.reseña.js</a>, <a href="routes_ruta.rese%C3%B1a.js.html#line1">line 1</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id="~rutaResena"><span class="type-signature">(inner, constant) </span>rutaResena<span class="type-signature"> :object</span></h4>
+
+
+
+
+<div class="description">
+    Esta es la ruta de las reseñas
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="routes_ruta.rese%C3%B1a.js.html">routes/ruta.reseña.js</a>, <a href="routes_ruta.rese%C3%B1a.js.html#line13">line 13</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 

@@ -10,7 +10,6 @@ import { Success, Error } from "../message/msj"
  * Esta funcion sirve para mostrar todos los cortes
  * @param {object} req captura la peticio en HTML
  * @param {object} res envia peticiones en HTML
- * @returns 
  */
 const mostrarCortes = async(req, res) => {
     const id = req.query["id"];
@@ -42,7 +41,6 @@ const mostrarCortes = async(req, res) => {
  * Esta funcion sirve para mostrar un corte
  * @param {object} req captura es peticio en HTML
  * @param {object} res envia peticiones en HTML
- * @returns 
  */
 const mostrarUnCorte = async(req, res) => {
     const id = req.params['id'];
@@ -61,7 +59,6 @@ const mostrarUnCorte = async(req, res) => {
  * Esta funcion sirve para crear los cortes
  * @param {object} req captura la peticio en HTML
  * @param {object} res envia peticiones en HTML
- * @returns 
  */
 const crearCorte = async(req, res) => {
     const {nombre, id_servicio} = req.body
@@ -84,7 +81,6 @@ const crearCorte = async(req, res) => {
  * Esta funcion sirve para eliminar los cortes
  * @param {object} req captura la peticio en HTML
  * @param {object} res envia peticiones en HTML
- * @returns 
  */
 const eliminarCorte = async(req, res) => {
     const {id} = req.body

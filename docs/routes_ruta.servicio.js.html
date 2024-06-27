@@ -26,11 +26,16 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { Router } from "express";
+            <pre class="prettyprint source linenums"><code>/**
+ * Rutas de los servicios
+ * @module Rutas_servicio
+ */
+
+import { Router } from "express";
 import { crearServicio, eliminarServicio, mostrarTodosServicios } from "../controllers/controller.servicios";
 
 /**
- * Esta es la ruta de los servicio
+ * Esta es la ruta de los servicios
  * @type {object}
  */
 const rutaServicio = Router();
@@ -49,13 +54,13 @@ export default rutaServicio;</code></pre>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#Error">Error</a></li><li><a href="global.html#Success">Success</a></li><li><a href="global.html#actualizarContra">actualizarContra</a></li><li><a href="global.html#actualizarCorreo">actualizarCorreo</a></li><li><a href="global.html#actualizarNombre">actualizarNombre</a></li><li><a href="global.html#actualizarTelefono">actualizarTelefono</a></li><li><a href="global.html#app">app</a></li><li><a href="global.html#cancelarCita">cancelarCita</a></li><li><a href="global.html#crearCita">crearCita</a></li><li><a href="global.html#crearCorte">crearCorte</a></li><li><a href="global.html#crearProductos">crearProductos</a></li><li><a href="global.html#crearRese%25C3%25B1as">crearReseñas</a></li><li><a href="global.html#crearServicio">crearServicio</a></li><li><a href="global.html#crearTarjeta">crearTarjeta</a></li><li><a href="global.html#eliminarCorte">eliminarCorte</a></li><li><a href="global.html#eliminarCuenta">eliminarCuenta</a></li><li><a href="global.html#eliminarProductos">eliminarProductos</a></li><li><a href="global.html#eliminarRese%25C3%25B1as">eliminarReseñas</a></li><li><a href="global.html#eliminarServicio">eliminarServicio</a></li><li><a href="global.html#eliminarTarjeta">eliminarTarjeta</a></li><li><a href="global.html#loguear">loguear</a></li><li><a href="global.html#modificarCorreoBarbero">modificarCorreoBarbero</a></li><li><a href="global.html#mostarUnBarbero">mostarUnBarbero</a></li><li><a href="global.html#mostrarBarberos">mostrarBarberos</a></li><li><a href="global.html#mostrarCortesServicio">mostrarCortesServicio</a></li><li><a href="global.html#mostrarRese%25C3%25B1as">mostrarReseñas</a></li><li><a href="global.html#mostrarTodosClientes">mostrarTodosClientes</a></li><li><a href="global.html#mostrarTodosCortes">mostrarTodosCortes</a></li><li><a href="global.html#mostrarTodosProductos">mostrarTodosProductos</a></li><li><a href="global.html#mostrarTodosServicios">mostrarTodosServicios</a></li><li><a href="global.html#mostrarUnCliente">mostrarUnCliente</a></li><li><a href="global.html#mostrarUnCorte">mostrarUnCorte</a></li><li><a href="global.html#mostrarUnProducto">mostrarUnProducto</a></li><li><a href="global.html#registro">registro</a></li><li><a href="global.html#reprogramarCita">reprogramarCita</a></li><li><a href="global.html#ruta">ruta</a></li><li><a href="global.html#rutaBarbero">rutaBarbero</a></li><li><a href="global.html#rutaCita">rutaCita</a></li><li><a href="global.html#rutaCliente">rutaCliente</a></li><li><a href="global.html#rutaCorte">rutaCorte</a></li><li><a href="global.html#rutaInicio">rutaInicio</a></li><li><a href="global.html#rutaProducto">rutaProducto</a></li><li><a href="global.html#rutaRese%25C3%25B1a">rutaReseña</a></li><li><a href="global.html#rutaServicio">rutaServicio</a></li><li><a href="global.html#validacionDatos">validacionDatos</a></li><li><a href="global.html#validarCuenta">validarCuenta</a></li><li><a href="global.html#validarToken">validarToken</a></li><li><a href="global.html#verifyToken">verifyToken</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Controladores_barberos.html">Controladores_barberos</a></li><li><a href="module-Controladores_citas.html">Controladores_citas</a></li><li><a href="module-Controladores_clientes.html">Controladores_clientes</a></li><li><a href="module-Controladores_cortes.html">Controladores_cortes</a></li><li><a href="module-Controladores_home.html">Controladores_home</a></li><li><a href="module-Controladores_productos.html">Controladores_productos</a></li><li><a href="module-Controladores_rese%25C3%25B1as.html">Controladores_reseñas</a></li><li><a href="module-Controladores_servicios.html">Controladores_servicios</a></li><li><a href="module-Rutas_barbero.html">Rutas_barbero</a></li><li><a href="module-Rutas_cita.html">Rutas_cita</a></li><li><a href="module-Rutas_cliente.html">Rutas_cliente</a></li><li><a href="module-Rutas_corte.html">Rutas_corte</a></li><li><a href="module-Rutas_home.html">Rutas_home</a></li><li><a href="module-Rutas_index.html">Rutas_index</a></li><li><a href="module-Rutas_producto.html">Rutas_producto</a></li><li><a href="module-Rutas_rese%25C3%25B1as.html">Rutas_reseñas</a></li><li><a href="module-Rutas_servicio.html">Rutas_servicio</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Error">Error</a></li><li><a href="global.html#Success">Success</a></li><li><a href="global.html#app">app</a></li><li><a href="global.html#campo">campo</a></li><li><a href="global.html#msjindex">msjindex</a></li><li><a href="global.html#validacionDatos">validacionDatos</a></li><li><a href="global.html#validarCuenta">validarCuenta</a></li><li><a href="global.html#verifyToken">verifyToken</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Wed Jun 26 2024 12:27:38 GMT-0500 (hora estándar de Colombia)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Thu Jun 27 2024 17:42:35 GMT-0500 (hora estándar de Colombia)
 </footer>
 
 <script> prettyPrint(); </script>

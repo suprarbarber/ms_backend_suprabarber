@@ -10,7 +10,6 @@ import { Success, Error } from "../message/msj"
  * Esta funcion sirve para mostrar los servicios
  * @param {object} req captura la peticio en HTML
  * @param {object} res envia peticiones en HTML
- * @returns 
  */
 const mostrarTodosServicios = async(req, res) => {
     try {
@@ -27,7 +26,6 @@ const mostrarTodosServicios = async(req, res) => {
  * Esta funcion sirve para crear los servicios
  * @param {object} req captura la peticio en HTML
  * @param {object} res envia peticiones en HTML
- * @returns 
  */
 const crearServicio = async(req, res) => {
     const {nombre} = req.body
@@ -50,7 +48,6 @@ const crearServicio = async(req, res) => {
  * Esta funcion sirve para eliminar servicios
  * @param {object} req captura la peticio en HTML
  * @param {object} res envia peticiones en HTML
- * @returns 
  */
 const eliminarServicio = async(req, res) => {
     const {id} = req.body

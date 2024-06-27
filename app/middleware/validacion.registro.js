@@ -5,7 +5,7 @@ import { Error } from "../message/msj"
 
 /**
  * Esta es una funcion que sirve para validar los datos enviados
- * @returns 
+ * @returns {void}
  */
 const validacionDatos = () => {
 

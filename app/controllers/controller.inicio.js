@@ -14,7 +14,6 @@ config()
  * Esta funcion sirve para registrar los usuarios
  * @param {object} req captura la peticio en HTML
  * @param {object} res envia peticiones en HTML
- * @returns 
  */
 
  const registro = async(req,res) => {
@@ -58,7 +57,6 @@ config()
  * Esta funcion sirve para loguear los usuarios
  * @param {object} req captura la peticio en HTML
  * @param {object} res envia peticiones en HTML
- * @returns 
  */
         
  const loguear = async(req, res) => {

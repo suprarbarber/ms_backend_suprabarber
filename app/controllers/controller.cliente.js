@@ -11,7 +11,6 @@ import bcrypt from "bcrypt";
  * Esta funcion sirve para mostrar todos los clientes
  * @param {object} req captura la peticio en HTML
  * @param {object} res envia peticiones en HTML
- * @returns 
  */
 const mostrarTodosClientes = async(req, res) => {
     try {
@@ -30,7 +29,6 @@ const mostrarTodosClientes = async(req, res) => {
  * Esta funcion sirve para mostrar un cliente
  * @param {object} req captura la peticio en HTML
  * @param {object} res envia peticiones en HTML
- * @returns 
  */
 const mostrarUnCliente = async(req,res) => {
     //se trae el dato de la url
@@ -52,7 +50,6 @@ const mostrarUnCliente = async(req,res) => {
  * Esta funcion sirve para actualizar el telefono de un cliente
  * @param {object} req captura es peticio en HTML
  * @param {object} res envia peticiones en HTML
- * @returns 
  */
 const actualizarTelefono = async(req, res) => {
     //se traen los datos del body
@@ -78,7 +75,6 @@ const actualizarTelefono = async(req, res) => {
  * Esta funcion sirve para actualizar el nombre de un cliente
  * @param {object} req captura la peticio en HTML
  * @param {object} res envia peticiones en HTML
- * @returns 
  */
 const actualizarNombre = async(req, res) => {
     //se traen los datos del body
@@ -103,7 +99,6 @@ const actualizarNombre = async(req, res) => {
  * Esta funcion sirve para actualizar la contrasena de un cliente
  * @param {object} req captura la peticio en HTML
  * @param {object} res envia peticiones en HTML
- * @returns 
  */
 const actualizarContra = async(req, res) => {
     //se traen los datos del body
@@ -134,7 +129,6 @@ const actualizarContra = async(req, res) => {
  * Esta funcion sirve para actualizar el correo de un cliente
  * @param {object} req captura la peticio en HTML
  * @param {object} res envia peticiones en HTML
- * @returns 
  */
 const actualizarCorreo = async(req, res) => {
     //se traen los datos del body
@@ -159,7 +153,6 @@ const actualizarCorreo = async(req, res) => {
  * Esta funcion sirve para eliminar la cuenta de un cliente
  * @param {object} req captura la peticio en HTML
  * @param {object} res envia peticiones en HTML
- * @returns 
  */
 const eliminarCuenta = async(req, res) => {
 //se traen los datos del body
@@ -184,7 +177,6 @@ try {
  * Esta funcion sirve para verificar si el token es valido
  * @param {object} req captura la peticio en HTML
  * @param {object} res envia peticiones en HTML
- * @returns 
  */
 const validarToken = (req, res) => {
     Success(req, res, 200, "El token es valido")

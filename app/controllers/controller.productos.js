@@ -10,7 +10,6 @@ import { Success, Error } from "../message/msj"
  * Esta funcion sirve para mostrar todos los productos
  * @param {object} req captura la peticio en HTML
  * @param {object} res envia peticiones en HTML
- * @returns 
  */
 const mostrarTodosProductos = async(req, res) => {
     try {
@@ -26,7 +25,6 @@ const mostrarTodosProductos = async(req, res) => {
  * Esta funcion sirve para mostrar un producto
  * @param {object} req captura la peticio en HTML
  * @param {object} res envia peticiones en HTML
- * @returns 
  */
 const mostrarUnProducto = async(req, res) => {
     const id = req.params['id'];
@@ -44,7 +42,6 @@ const mostrarUnProducto = async(req, res) => {
  * Esta funcion sirve para crear todos los productos
  * @param {object} req captura la peticio en HTML
  * @param {object} res envia peticiones en HTML
- * @returns 
  */
 const crearProductos = async(req, res) => {
     const {nombre, descripcion, stock} = req.body
@@ -64,7 +61,6 @@ const crearProductos = async(req, res) => {
  * Esta funcion sirve para eliminar todos los productos
  * @param {object} req captura la peticio en HTML
  * @param {object} res envia peticiones en HTML
- * @returns 
  */
 const eliminarProductos = async(req, res) => {
     const {id} = req.body
