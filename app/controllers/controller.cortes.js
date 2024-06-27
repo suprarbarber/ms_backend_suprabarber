@@ -7,32 +7,31 @@ import { Success, Error } from "../message/msj"
  * @param {object} res envia peticiones en HTML
  * @returns 
  */
-const mostrarTodosCortes = async(req, res) => {
-    try {
-        const respuesta = await db.query(`CALL SP_MOSTRAR_CORTES()`)
-
-        Success(req, res, 200, respuesta[0][0])
-
-    } catch (error) {
-        Error(req, res, 400, error)
-    }
-}
-/**
- * Esta funcion sirve para mostrar todos los cortes
- * @param {object} req captura la peticio en HTML
- * @param {object} res envia peticiones en HTML
- * @returns 
- */
-const mostrarCortesServicio = async(req, res) => {
+const mostrarCortes = async(req, res) => {
     const id = req.query["id"];
-    try {
-        const respuesta = await db.query(`CALL SP_MOSTRAR_CORTES_SERVICIO('${id}')`)
-        Success(req, res, 200, respuesta[0][0])
 
-    } catch (error) {
-        Error(req, res, 400, error)
+    if(id){
+        try {
+            const respuesta = await db.query(`CALL SP_MOSTRAR_CORTES_SERVICIO('${id}')`)
+            Success(req, res, 200, respuesta[0][0])
+        
+        } catch (error) {
+            Error(req, res, 400, error)
+        }
+
+    }else{
+        try {
+            const respuesta = await db.query(`CALL SP_MOSTRAR_CORTES()`)
+    
+            Success(req, res, 200, respuesta[0][0])
+    
+        } catch (error) {
+            Error(req, res, 400, error)
+        }
     }
+    
 }
+
 
 /**
  * Esta funcion sirve para mostrar un corte
@@ -100,4 +99,4 @@ const eliminarCorte = async(req, res) => {
 
 }
 
-export { mostrarTodosCortes, mostrarCortesServicio, mostrarUnCorte,crearCorte, eliminarCorte};
+export { mostrarCortes, mostrarUnCorte,crearCorte, eliminarCorte};
