@@ -1,3 +1,8 @@
+/**
+ * Rutas de las citas
+ * @module Rutas_cita
+ */
+
 import { Router } from "express";
 import { cancelarCita, crearCita, reprogramarCita } from "../controllers/controller.cita";
 

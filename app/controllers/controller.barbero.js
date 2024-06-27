@@ -1,3 +1,8 @@
+/**
+ * Controladores de los barberos
+ * @module Controladores_barberos
+ */
+
 import { db } from "../config/.db.mysql";
 import { Error, Success } from "../message/msj";
 

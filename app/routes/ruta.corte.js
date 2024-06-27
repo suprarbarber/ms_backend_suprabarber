@@ -1,3 +1,8 @@
+/**
+ * Rutas de los cortes
+ * @module Rutas_corte
+ */
+
 import { Router } from "express";
 import { crearCorte, eliminarCorte, mostrarCortes, mostrarUnCorte } from "../controllers/controller.cortes";
 

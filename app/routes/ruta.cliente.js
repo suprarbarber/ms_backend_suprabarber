@@ -1,3 +1,8 @@
+/**
+ * Rutas del cliente
+ * @module Rutas_cliente
+ */
+
 import { Router } from "express";
 import { actualizarContra, 
     actualizarCorreo, 

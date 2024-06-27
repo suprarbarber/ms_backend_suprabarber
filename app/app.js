@@ -23,4 +23,5 @@ app.set("port", process.env.PORT || 3000)
 //rutas
 app.use("/api", ruta);
 
+
 export default app;

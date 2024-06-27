@@ -26,7 +26,16 @@ const Success = (req, res, status = 200, msj = "") => {
     })
 } 
 
+/**
+ * Mensaje donde va el campo
+ * @type {string}
+ */
 const campo = "Backend ";
+
+/**
+ * Mensaje del index.js
+ * @type {string}
+ */
 const msjindex = "ejecutandose en http://localhost:";
 
 export {Error, Success, campo, msjindex}

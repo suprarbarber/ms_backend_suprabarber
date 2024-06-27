@@ -1,3 +1,8 @@
+/**
+ * Controladores de los apartados del home
+ * @module Controladores_home
+ */
+
 import { db } from "../config/.db.mysql"
 import { Success, Error } from "../message/msj"
 import bcrypt, { compare } from "bcrypt";

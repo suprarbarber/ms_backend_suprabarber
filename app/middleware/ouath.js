@@ -8,7 +8,7 @@ config();
  * Esta funcion sirve para validar si el token es correcto
  * @param {object} req captura es la peticio en HTML
  * @param {object} res envia peticiones en HTML
- * @param {object} next da la instrucion de seguir con la siguiente funcion
+ * @param {object} next da la instrucion de seguir con la siguiente función
  */
 const verifyToken = async(req, res, next) => {
 

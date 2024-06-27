@@ -1,3 +1,8 @@
+/**
+ * Controladores de los productos
+ * @module Controladores_productos
+ */
+
 import { db } from "../config/.db.mysql"
 import { Success, Error } from "../message/msj"
 

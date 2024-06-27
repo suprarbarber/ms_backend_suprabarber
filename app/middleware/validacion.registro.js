@@ -1,8 +1,10 @@
+
+
 import { check, validationResult } from "express-validator";
 import { Error } from "../message/msj"
 
 /**
- * Esta es una funcion que sirve para validar los campos
+ * Esta es una funcion que sirve para validar los datos enviados
  * @returns 
  */
 const validacionDatos = () => {

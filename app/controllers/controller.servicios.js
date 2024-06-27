@@ -1,8 +1,13 @@
+/**
+ * Controladores de los servicios
+ * @module Controladores_servicios
+ */
+
 import { db } from "../config/.db.mysql"
 import { Success, Error } from "../message/msj"
 
 /**
- * Esta funcion sirve para mostrar todos los servicios
+ * Esta funcion sirve para mostrar los servicios
  * @param {object} req captura la peticio en HTML
  * @param {object} res envia peticiones en HTML
  * @returns 

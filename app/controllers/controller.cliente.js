@@ -1,3 +1,8 @@
+/**
+ * Controladores de los clientes
+ * @module Controladores_clientes
+ */
+
 import { db } from "../config/.db.mysql"
 import { Error, Success } from "../message/msj"
 import bcrypt from "bcrypt";

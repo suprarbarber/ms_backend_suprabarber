@@ -1,3 +1,8 @@
+/**
+ * Rutas de los productos
+ * @module Rutas_producto
+ */
+
 import { Router } from "express";
 import { crearProductos, eliminarProductos, mostrarTodosProductos, mostrarUnProducto } from "../controllers/controller.productos";
 

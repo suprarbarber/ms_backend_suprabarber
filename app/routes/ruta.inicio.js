@@ -1,3 +1,8 @@
+/**
+ * Rutas del home
+ * @module Rutas_home
+ */
+
 import { Router } from "express";
 import { loguear, registro } from "../controllers/controller.inicio";
 import { validacionDatos } from "../middleware/validacion.registro";
