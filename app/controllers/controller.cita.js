@@ -13,12 +13,13 @@ import { Error, Success } from "../message/msj";
  * @param {*} res envia respuestas en HTML
  */
 const crearCita = async(req, res) => {
-    const {id_horario, id_servicio, id, id_corte, id_barbero } = req.body;
+    const {id_turno, id_servicio, id, id_corte, id_barbero, id_fecha } = req.body;
+    // console.log(id_fecha);
+    const fecha = `2024-07-${id_fecha}T05:00:00.000Z`
     
     try {
-        const respuesta = await db.query(`CALL SP_CREAR_CITA('${id_horario}', '${id_servicio}')`);
+        const respuesta = await db.query(`CALL SP_CREAR_CITA('${id_turno}', '${id_servicio}','${fecha}')`);
         const id_reserva = respuesta[0][0][0].id_reserva;
-        // console.log(id_reserva);
 
         const respuesta2 = await db.query(`CALL SP_CREAR_FACTURA_CITA('${id_reserva}','${id_corte}','${id}','${id_barbero}')`)
 
@@ -58,10 +59,11 @@ const mostrarCita = async(req, res) => {
  */
 
 const reprogramarCita = async(req, res) => {
-    const {id_reserva, id_horario} = req.body;
-    
+    const {id_reserva, id_turno, id_fecha} = req.body;
+    const fecha = `2024-07-${id_fecha}T05:00:00.000Z`
+
     try {
-        const respuesta = await db.query(`CALL SP_REPROGRAMAR_CITA('${id_reserva}', '${id_horario}')`);
+        const respuesta = await db.query(`CALL SP_REPROGRAMAR_CITA('${id_reserva}', '${id_turno}','${fecha}')`);
 
         if(respuesta[0].affectedRows == 1){
             Success(req, res, 200, "Su cita ha sido reprogramada")
@@ -95,6 +97,7 @@ const cancelarCita = async(req, res) => {
         Error(req, res, 400, error)
     }
 }
+
 
 
 export {crearCita, reprogramarCita, cancelarCita, mostrarCita}

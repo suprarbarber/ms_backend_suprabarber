@@ -15,6 +15,7 @@ import rutaCita from "./ruta.cita";
 // swagger
 import swaggerUi from "swagger-ui-express";
 import swaggerFile from "../tool/swagger-output.json"
+import rutaTurno from "./ruta.turno";
 
 
 /**
@@ -31,6 +32,7 @@ ruta.use("/", rutaCorte);
 ruta.use("/", rutaResena);
 ruta.use("/", rutaBarbero);
 ruta.use("/", rutaCita);
+ruta.use("/", rutaTurno);
 
 ruta.use("/doc", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
