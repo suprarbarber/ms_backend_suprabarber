@@ -18,14 +18,32 @@ const crearCita = async(req, res) => {
     try {
         const respuesta = await db.query(`CALL SP_CREAR_CITA('${id_horario}', '${id_servicio}')`);
         const id_reserva = respuesta[0][0][0].id_reserva;
+        // console.log(id_reserva);
 
-        const respuesta2 = await db.query(`CALL SP_CREAR_FACTURA_CITA('${id}', '${id_reserva}','${id_corte}','${id_barbero}')`)
+        const respuesta2 = await db.query(`CALL SP_CREAR_FACTURA_CITA('${id_reserva}','${id_corte}','${id}','${id_barbero}')`)
 
         if(respuesta2[0].affectedRows == 1){
             Success(req, res, 200, "Cita reservada exitosamente")
         }else{
             Error(req, res, 400, "No se pudo reservar")
         }
+        
+    } catch (error) {
+        Error(req, res, 400, error)
+    }
+}
+
+/**
+ * Esta funcion es para mostrar las citas
+ * @param {*} req captura peticiones en HTML
+ * @param {*} res envia respuestas en HTML
+ */
+const mostrarCita = async(req, res) => {
+    const id = req.query['id'];
+    try {
+        const respuesta = await db.query(`CALL SP_MOSTRAR_CITAS('${id}')`);
+
+        Success(req, res, 200, respuesta[0][0])
         
     } catch (error) {
         Error(req, res, 400, error)
@@ -79,4 +97,4 @@ const cancelarCita = async(req, res) => {
 }
 
 
-export {crearCita, reprogramarCita, cancelarCita}
+export {crearCita, reprogramarCita, cancelarCita, mostrarCita}

@@ -4,7 +4,7 @@
  */
 
 import { Router } from "express";
-import { cancelarCita, crearCita, reprogramarCita } from "../controllers/controller.cita";
+import { cancelarCita, crearCita, mostrarCita, reprogramarCita } from "../controllers/controller.cita";
 
 /**
  * Esta es la ruta de las citas
@@ -13,6 +13,7 @@ import { cancelarCita, crearCita, reprogramarCita } from "../controllers/control
 const rutaCita = Router();
 
 rutaCita.post("/cita", crearCita)
+rutaCita.get("/cita", mostrarCita)
 rutaCita.put("/cita", reprogramarCita)
 rutaCita.put("/cita/:id", cancelarCita)
 

@@ -22,31 +22,51 @@ config()
     const clave = contrasena;
     
     try {
-
-        // verificacion de la cuenta 
-        const repp = await db.query(`CALL SP_VERIFICAR_EXISTENCIA_DE_CUENTA('${id}', '${correo}')`);
-
-        if(repp[0][0] != 0){
-            Error(req, res, 401, "El usuario ya existe")
-            return;
+        if(roll == "cliente"){
+            // verificacion de la cuenta del clieente
+            const repp = await db.query(`CALL SP_VERIFICAR_EXISTENCIA_DE_CUENTA('${id}', '${correo}')`);
+    
+            if(repp[0][0] != 0){
+                Error(req, res, 401, "El usuario ya existe")
+                return;
+            }
+    
+            // encriptacion de la clave 
+            const hash = await bcrypt.hash(clave, 2)
+            const claveCifrada = hash;
+    
+            const respuesta = await db.query(`CALL SP_REGISTRAR_CLIENTE('${id}', '${nombre}',
+            '${telefono}', '${correo}', '${claveCifrada}')`);
+    
+            console.log(respuesta[0]);
+    
+            if(respuesta[0].affectedRows == 1){
+    
+                Success(req, res, 200, "Se ha registrado correctamente")
+                
+            }else{
+                Error(req, res, 400, "Error, intentalo de nuevo más tarde")
+            }
+        }
+        if(roll == "barbero"){
+            // encriptacion de la clave 
+            const hash = await bcrypt.hash(clave, 2)
+            const claveCifrada = hash;
+    
+            const respuesta = await db.query(`CALL SP_REGISTRAR_BARBERO('${id}', '${nombre}',
+            '${telefono}', '${correo}', '${claveCifrada}')`);
+    
+            console.log(respuesta[0]);
+    
+            if(respuesta[0].affectedRows == 1){
+    
+                Success(req, res, 200, "Se ha registrado correctamente")
+                
+            }else{
+                Error(req, res, 400, "Error, intentalo de nuevo más tarde")
+            }
         }
 
-        // encriptacion de la clave 
-        const hash = await bcrypt.hash(clave, 2)
-        const claveCifrada = hash;
-
-        const respuesta = await db.query(`CALL SP_REGISTRAR_USER('${id}', '${nombre}',
-        '${telefono}', '${correo}', '${claveCifrada}', '${roll}')`);
-
-        console.log(respuesta[0]);
-
-        if(respuesta[0].affectedRows == 1){
-
-            Success(req, res, 200, "Se ha registrado correctamente")
-            
-        }else{
-            Error(req, res, 400, "Error, intentalo de nuevo más tarde")
-        }
 
     } catch (error) {
         Error(req, res, 401, error)
@@ -108,7 +128,7 @@ config()
                 expiresIn : process.env.TOKEN_EXPIRES_IN
             }
         )
-        let id = respuesta[0][0][0].identificacion;
+        let id = respuesta[0][0][0].id_cliente;
 
         Success(req, res, 200, {token , id});
         return;

@@ -15,7 +15,7 @@ const crearReseñas = async(req, res) => {
     const {id, comentario} = req.body
 
     try {
-        const respuesta = await db.query(`CALL SP_INSERTAR_RESENAS('${id}', '${comentario}')`);
+        const respuesta = await db.query(`CALL SP_CREAR_RESENA('${id}', '${comentario}')`);
 
         if(respuesta[0].affectedRows == 1){
             Success(req, res, 200, "Fue agregado correctamente")

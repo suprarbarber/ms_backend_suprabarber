@@ -20,7 +20,7 @@ const validacionDatos = () => {
         // valiadacion del correo 
         check('correo').isEmail().withMessage('Correo invalido'),
         //validacion de la contaseña
-        check('contrasena').isLength({ min : 5}).withMessage('Debe tener minimo 5 caracteres'),
+        check('contrasena').isLength({ min : 5}).withMessage('La contrasena debe tener minimo 5 caracteres'),
         //validacion del roll
         check('roll').notEmpty(),
 

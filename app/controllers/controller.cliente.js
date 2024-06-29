@@ -15,7 +15,7 @@ import bcrypt from "bcrypt";
 const mostrarTodosClientes = async(req, res) => {
     try {
         //se llama la base de datos con el procedimiento almacenado
-        const respuesta = await db.query(`CALL SP_VISUALIZAR_TODOS_CLIENTES()`)
+        const respuesta = await db.query(`CALL SP_MOSTRAR_TODOS_CLIENTES()`)
 
         //se envia la respuesta de la solicitud
         Success(req, res, 200, respuesta[0][0])
@@ -36,7 +36,7 @@ const mostrarUnCliente = async(req,res) => {
 
     try {
         //se llama la base de datos con el procedimiento almacenado mas el dato
-        const respuesta = await db.query(`CALL SP_VISUALIZAR_UN_CLIENTE('${id}')`)
+        const respuesta = await db.query(`CALL SP_MOSTRAR_UN_CLIENTE('${id}')`)
 
         //se envia la respuesta de la solicitud
         Success(req, res, 200, respuesta[0][0])
