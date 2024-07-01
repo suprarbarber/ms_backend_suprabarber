@@ -36,6 +36,6 @@ const campo = "Backend ";
  * Mensaje del index.js
  * @type {string}
  */
-const msjindex = "ejecutandose en http://localhost:";
+const msjindex = "ejecutandose en ";
 
 export {Error, Success, campo, msjindex}

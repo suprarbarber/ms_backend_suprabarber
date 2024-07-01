@@ -15,7 +15,9 @@ import { Error, Success } from "../message/msj";
 const crearCita = async(req, res) => {
     const {id_turno, id_servicio, id, id_corte, id_barbero, id_fecha } = req.body;
     // console.log(id_fecha);
-    const fecha = `2024-07-${id_fecha}T05:00:00.000Z`
+    const fecha = `2024-07-${id_fecha}`
+
+    console.log();
     
     try {
         const respuesta = await db.query(`CALL SP_CREAR_CITA('${id_turno}', '${id_servicio}','${fecha}')`);
