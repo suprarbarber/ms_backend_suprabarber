@@ -46,4 +46,4 @@ var campo = exports.campo = "Backend ";
  * Mensaje del index.js
  * @type {string}
  */
-var msjindex = exports.msjindex = "ejecutandose en http://localhost:";
+var msjindex = exports.msjindex = "ejecutandose en ";

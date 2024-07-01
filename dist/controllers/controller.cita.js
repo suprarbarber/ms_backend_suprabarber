@@ -26,33 +26,34 @@ var crearCita = exports.crearCita = /*#__PURE__*/function () {
       while (1) switch (_context.prev = _context.next) {
         case 0:
           _req$body = req.body, id_turno = _req$body.id_turno, id_servicio = _req$body.id_servicio, id = _req$body.id, id_corte = _req$body.id_corte, id_barbero = _req$body.id_barbero, id_fecha = _req$body.id_fecha; // console.log(id_fecha);
-          fecha = "2024-07-".concat(id_fecha, "T05:00:00.000Z");
-          _context.prev = 2;
-          _context.next = 5;
+          fecha = "2024-07-".concat(id_fecha);
+          console.log();
+          _context.prev = 3;
+          _context.next = 6;
           return _db.db.query("CALL SP_CREAR_CITA('".concat(id_turno, "', '").concat(id_servicio, "','").concat(fecha, "')"));
-        case 5:
+        case 6:
           respuesta = _context.sent;
           id_reserva = respuesta[0][0][0].id_reserva;
-          _context.next = 9;
+          _context.next = 10;
           return _db.db.query("CALL SP_CREAR_FACTURA_CITA('".concat(id_reserva, "','").concat(id_corte, "','").concat(id, "','").concat(id_barbero, "')"));
-        case 9:
+        case 10:
           respuesta2 = _context.sent;
           if (respuesta2[0].affectedRows == 1) {
             (0, _msj.Success)(req, res, 200, "Cita reservada exitosamente");
           } else {
             (0, _msj.Error)(req, res, 400, "No se pudo reservar");
           }
-          _context.next = 16;
+          _context.next = 17;
           break;
-        case 13:
-          _context.prev = 13;
-          _context.t0 = _context["catch"](2);
+        case 14:
+          _context.prev = 14;
+          _context.t0 = _context["catch"](3);
           (0, _msj.Error)(req, res, 400, _context.t0);
-        case 16:
+        case 17:
         case "end":
           return _context.stop();
       }
-    }, _callee, null, [[2, 13]]);
+    }, _callee, null, [[3, 14]]);
   }));
   return function crearCita(_x, _x2) {
     return _ref.apply(this, arguments);

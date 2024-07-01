@@ -28,7 +28,7 @@ const crearCita = async(req, res) => {
         if(respuesta2[0].affectedRows == 1){
             Success(req, res, 200, "Cita reservada exitosamente")
         }else{
-            Error(req, res, 400, "No se pudo reservar")
+            Error( req, res, 400, "No se pudo reservar")
         }
         
     } catch (error) {
