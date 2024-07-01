@@ -4,22 +4,22 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.mostrarUnProducto = exports.mostrarTodosProductos = exports.eliminarProductos = exports.crearProductos = void 0;
+exports.mostrarTodosServicios = exports.eliminarServicio = exports.crearServicio = void 0;
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
 var _db = require("../config/.db.mysql");
 var _msj = require("../message/msj");
 /**
- * Controladores de los productos
- * @module Controladores_productos
+ * Controladores de los servicios
+ * @module Controladores_servicios
  */
 
 /**
- * Esta funcion sirve para mostrar todos los productos
+ * Esta funcion sirve para mostrar los servicios
  * @param {object} req captura la peticio en HTML
  * @param {object} res envia peticiones en HTML
  */
-var mostrarTodosProductos = exports.mostrarTodosProductos = /*#__PURE__*/function () {
+var mostrarTodosServicios = exports.mostrarTodosServicios = /*#__PURE__*/function () {
   var _ref = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(req, res) {
     var respuesta;
     return _regenerator["default"].wrap(function _callee$(_context) {
@@ -27,7 +27,7 @@ var mostrarTodosProductos = exports.mostrarTodosProductos = /*#__PURE__*/functio
         case 0:
           _context.prev = 0;
           _context.next = 3;
-          return _db.db.query("CALL SP_MOSTRAR_PRODUCTOS()");
+          return _db.db.query("CALL SP_MOSTRAR_SERVICIOS()");
         case 3:
           respuesta = _context.sent;
           (0, _msj.Success)(req, res, 200, respuesta[0][0]);
@@ -43,28 +43,34 @@ var mostrarTodosProductos = exports.mostrarTodosProductos = /*#__PURE__*/functio
       }
     }, _callee, null, [[0, 7]]);
   }));
-  return function mostrarTodosProductos(_x, _x2) {
+  return function mostrarTodosServicios(_x, _x2) {
     return _ref.apply(this, arguments);
   };
 }();
+
 /**
- * Esta funcion sirve para mostrar un producto
+ * Esta funcion sirve para crear los servicios
  * @param {object} req captura la peticio en HTML
  * @param {object} res envia peticiones en HTML
  */
-var mostrarUnProducto = exports.mostrarUnProducto = /*#__PURE__*/function () {
+var crearServicio = exports.crearServicio = /*#__PURE__*/function () {
   var _ref2 = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee2(req, res) {
-    var id, respuesta;
+    var nombre, respuesta;
     return _regenerator["default"].wrap(function _callee2$(_context2) {
       while (1) switch (_context2.prev = _context2.next) {
         case 0:
-          id = req.params['id'];
+          nombre = req.body.nombre;
           _context2.prev = 1;
           _context2.next = 4;
-          return _db.db.query("CALL SP_MOSTRAR_UN_PRODUCTO('".concat(id, "')"));
+          return _db.db.query("CALL SP_CREAR_SERVICIO('".concat(nombre, "')"));
         case 4:
           respuesta = _context2.sent;
-          (0, _msj.Success)(req, res, 200, respuesta[0][0]);
+          // condicional de la respuesta que traiga 
+          if (respuesta[0].affectedRows == 1) {
+            (0, _msj.Success)(req, res, 200, "El servicio ha sido creado");
+          } else {
+            (0, _msj.Error)(req, res, 400, "No se pudo crear el servicio");
+          }
           _context2.next = 11;
           break;
         case 8:
@@ -77,31 +83,32 @@ var mostrarUnProducto = exports.mostrarUnProducto = /*#__PURE__*/function () {
       }
     }, _callee2, null, [[1, 8]]);
   }));
-  return function mostrarUnProducto(_x3, _x4) {
+  return function crearServicio(_x3, _x4) {
     return _ref2.apply(this, arguments);
   };
 }();
 /**
- * Esta funcion sirve para crear todos los productos
+ * Esta funcion sirve para eliminar servicios
  * @param {object} req captura la peticio en HTML
  * @param {object} res envia peticiones en HTML
  */
-var crearProductos = exports.crearProductos = /*#__PURE__*/function () {
+var eliminarServicio = exports.eliminarServicio = /*#__PURE__*/function () {
   var _ref3 = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee3(req, res) {
-    var _req$body, nombre, descripcion, stock, respuesta;
+    var id, respuesta;
     return _regenerator["default"].wrap(function _callee3$(_context3) {
       while (1) switch (_context3.prev = _context3.next) {
         case 0:
-          _req$body = req.body, nombre = _req$body.nombre, descripcion = _req$body.descripcion, stock = _req$body.stock;
+          id = req.body.id;
           _context3.prev = 1;
           _context3.next = 4;
-          return _db.db.query("CALL SP_INSERTAR_PRODUCTO('".concat(nombre, "','").concat(descripcion, "','").concat(stock, "')"));
+          return _db.db.query("CALL SP_ELIMINAR_SERVICIO('".concat(id, "')"));
         case 4:
           respuesta = _context3.sent;
+          // condicional de la respuesta que traiga 
           if (respuesta[0].affectedRows == 1) {
-            (0, _msj.Success)(req, res, 200, "Producto creado correctamente");
+            (0, _msj.Success)(req, res, 200, "El servicio ha sido eliminado");
           } else {
-            (0, _msj.Error)(req, res, 400, "No se pudo crear el producto");
+            (0, _msj.Error)(req, res, 400, "No se pudo eliminar el servicio");
           }
           _context3.next = 11;
           break;
@@ -115,45 +122,7 @@ var crearProductos = exports.crearProductos = /*#__PURE__*/function () {
       }
     }, _callee3, null, [[1, 8]]);
   }));
-  return function crearProductos(_x5, _x6) {
+  return function eliminarServicio(_x5, _x6) {
     return _ref3.apply(this, arguments);
-  };
-}();
-/**
- * Esta funcion sirve para eliminar todos los productos
- * @param {object} req captura la peticio en HTML
- * @param {object} res envia peticiones en HTML
- */
-var eliminarProductos = exports.eliminarProductos = /*#__PURE__*/function () {
-  var _ref4 = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee4(req, res) {
-    var id, respuesta;
-    return _regenerator["default"].wrap(function _callee4$(_context4) {
-      while (1) switch (_context4.prev = _context4.next) {
-        case 0:
-          id = req.body.id;
-          _context4.prev = 1;
-          _context4.next = 4;
-          return _db.db.query("CALL SP_ELIMINAR_PRODUCTO('".concat(id, "')"));
-        case 4:
-          respuesta = _context4.sent;
-          if (respuesta[0].affectedRows == 1) {
-            (0, _msj.Success)(req, res, 200, "Producto creado correctamente");
-          } else {
-            (0, _msj.Error)(req, res, 400, "No se pudo crear el producto");
-          }
-          _context4.next = 11;
-          break;
-        case 8:
-          _context4.prev = 8;
-          _context4.t0 = _context4["catch"](1);
-          (0, _msj.Error)(req, res, 400, _context4.t0);
-        case 11:
-        case "end":
-          return _context4.stop();
-      }
-    }, _callee4, null, [[1, 8]]);
-  }));
-  return function eliminarProductos(_x7, _x8) {
-    return _ref4.apply(this, arguments);
   };
 }();

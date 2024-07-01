@@ -474,7 +474,7 @@
             "schema": {
               "type": "object",
               "properties": {
-                "id_horario": {
+                "id_turno": {
                   "example": "any"
                 },
                 "id_servicio": {
@@ -488,11 +488,22 @@
                 },
                 "id_barbero": {
                   "example": "any"
+                },
+                "id_fecha": {
+                  "example": "any"
                 }
               }
             }
           }
         ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      },
+      "get": {
+        "description": "",
         "responses": {
           "default": {
             "description": ""
@@ -511,7 +522,10 @@
                 "id_reserva": {
                   "example": "any"
                 },
-                "id_horario": {
+                "id_turno": {
+                  "example": "any"
+                },
+                "id_fecha": {
                   "example": "any"
                 }
               }
@@ -536,6 +550,16 @@
             "type": "string"
           }
         ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/turno": {
+      "get": {
+        "description": "",
         "responses": {
           "default": {
             "description": ""

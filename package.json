@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+
   "scripts": {
+    "swagger-dev": "node ./app/tool/swagger.js",
     "doc" : "jsdoc -c jsdoc.json",
     "dev": "nodemon app/index.js --exec babel-node",
     "build": "babel app --out-dir dist",
-    "swagger": "node ./app/tool/swagger.js",
-    "start": "node index.js"
+    "swagger": "node ./dist/tool/swagger.js",
+    "start": "node dist/index.js"
   },
   "author": "Angie",
   "license": "ISC",

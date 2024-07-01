@@ -46,132 +46,57 @@ const mostrarUnCliente = async(req,res) => {
     }
 }
 
-/**
- * Esta funcion sirve para actualizar el telefono de un cliente
- * @param {object} req captura es peticio en HTML
- * @param {object} res envia peticiones en HTML
- */
-const actualizarTelefono = async(req, res) => {
-    //se traen los datos del body
-    const {id, telefono} = req.body
-
-    try {
-        //se llamala base de datos con el procedimiento almacenado
-        const respuesta = await db.query(`CALL SP_ACTUALIZAR_TELEFONO_CLIENTE('${id}','${telefono}')`);
-
-        // condicional de si trajo una respuesta 
-        if(respuesta[0].affectedRows == 1){
-            Success(req, res, 200, "Su telefono ha sido actualizado")
-        }else{
-            Error(req, res, 400, "No se pudo actualizar el dato")
-        }
-    } catch (error) {
-        // mensaje error vacio 
-        Error(req, res, 400, error)
-    }
-}
 
 /**
- * Esta funcion sirve para actualizar el nombre de un cliente
+ * Esta funcion sirve para actualizar los datos de un cliente
  * @param {object} req captura la peticio en HTML
  * @param {object} res envia peticiones en HTML
  */
-const actualizarNombre = async(req, res) => {
-    //se traen los datos del body
-    const {id, nombre} = req.body
+const actualizarDatos = async (req, res) => {
+    
+    // Se traen los datos del body
+    const {  nombre, correo, telefono} = req.body;
+    const id  = req.params['id']; // Asegúrate de obtener el ID de los parámetros de la ruta
 
     try {
-        //se llama la base de datos con el p.a y se mandan los datos
-        const respuesta = await db.query(`CALL SP_ACTUALIZAR_NOMBRE_CLIENTE('${id}','${nombre}')`);
-
-        // condicional de la respuesta que traiga 
-        if(respuesta[0].affectedRows == 1){
-            Success(req, res, 200, "Su nombre ha sido actualizado")
-        }else{
-            Error(req, res,400, "No se pudo actualizar el dato")
+        if (nombre) {
+            const respuesta = await db.query(`CALL SP_ACTUALIZAR_NOMBRE_CLIENTE('${id}', '${nombre}')`);
+            
+            if (respuesta[0].affectedRows == 1) {
+                return Success(req, res, 200, "Su nombre ha sido actualizado");
+            } else {
+                return Error(req, res, 400, "No se pudo actualizar el nombre");
+            }
         }
-    } catch (error) {
-        Error(req, res, 400, error)
-    }
-}
 
-/**
- * Esta funcion sirve para actualizar la contrasena de un cliente
- * @param {object} req captura la peticio en HTML
- * @param {object} res envia peticiones en HTML
- */
-const actualizarContra = async(req, res) => {
-    //se traen los datos del body
-    const {id, contra} = req.body
-    const clavesincifrar = contra
+        if (correo) {
 
-
-    try {
-        const hash = await bcrypt.hash(clavesincifrar, 2)
-        // se encipto la contrasena }
-        const claveCifrada = hash;
-
-        //se llama la base de datos con el p.a y se mandan los datos
-        const respuesta = await db.query(`CALL SP_ACTUALIZAR_CONTRASENA_CLIENTE('${id}','${claveCifrada}')`);
-
-        // condicional de la respuesta que traiga 
-        if(respuesta[0].affectedRows == 1){
-            Success(req, res, 200, "Su contraseña ha sido actualizado")
-        }else{
-            Error(req, res,400, "No se pudo actualizar el dato")
+            const respuesta = await db.query(`CALL SP_ACTUALIZAR_CORREO_CLIENTE('${id}', '${correo}')`);
+            
+            if (respuesta[0].affectedRows == 1) {
+                return Success(req, res, 200, "Su correo ha sido actualizado");
+            } else {
+                return Error(req, res, 400, "No se pudo actualizar el correo");
+            }
         }
-    } catch (error) {
-        Error(req, res, 400, error)
-    }
-}
 
-/**
- * Esta funcion sirve para actualizar el correo de un cliente
- * @param {object} req captura la peticio en HTML
- * @param {object} res envia peticiones en HTML
- */
-const actualizarCorreo = async(req, res) => {
-    //se traen los datos del body
-    const {id, correo} = req.body
+        if (telefono) {
+            const respuesta = await db.query(`CALL SP_ACTUALIZAR_TELEFONO_CLIENTE('${id}', '${telefono}')`);
 
-    try {
-        //se llama la base de datos con el p.a y se mandan los datos
-        const respuesta = await db.query(`CALL SP_ACTUALIZAR_CORREO_CLIENTE( '${id}' , '${correo}' )`);
-
-        // condicional de la respuesta que traiga 
-        if(respuesta[0].affectedRows == 1){
-            Success(req, res, 200, "Su correo ha sido actualizado")
-        }else{
-            Error(req, res,400, "No se pudo actualizar el dato")
+            if (respuesta[0].affectedRows == 1) {
+                return Success(req, res, 200, "Su telefono ha sido actualizado");
+            } else {
+                return Error(req, res, 400, "No se pudo actualizar el telefono");
+            }
         }
+
+
     } catch (error) {
-        Error(req, res, 400, error)
+        // Manejo general de errores
+        Error(req, res, 500, error.message);
     }
-}
+};
 
-/**
- * Esta funcion sirve para eliminar la cuenta de un cliente
- * @param {object} req captura la peticio en HTML
- * @param {object} res envia peticiones en HTML
- */
-const eliminarCuenta = async(req, res) => {
-//se traen los datos del body
-const {id} = req.body
-
-try {
-    //se llama la base de datos con el p.a y se mandan los datos
-    const respuesta = await db.query(`CALL SP_ELIMINAR_USUARIOS( '${id}')`);
-
-    // condicional de la respuesta que traiga 
-    if(respuesta[0].affectedRows == 1){
-        Success(req, res, 200, "Su cuenta ha sido eliminada")
-    }else{
-        Error(req, res,400, "No se pudo eliminar su cuenta")
-    }
-} catch (error) {
-    Error(req, res, 400, error)
-}
-}
 
 /**
  * Esta funcion sirve para verificar si el token es valido
@@ -184,10 +109,6 @@ const validarToken = (req, res) => {
 
 export {mostrarTodosClientes, 
     mostrarUnCliente, 
-    actualizarTelefono, 
-    actualizarNombre, 
-    actualizarContra, 
-    actualizarCorreo,
-    eliminarCuenta,
+    actualizarDatos,
     validarToken
 }

@@ -6,6 +6,10 @@ Object.defineProperty(exports, "__esModule", {
 exports.validacionDatos = void 0;
 var _expressValidator = require("express-validator");
 var _msj = require("../message/msj");
+/**
+ * Esta es una funcion que sirve para validar los datos enviados
+ * @returns {void}
+ */
 var validacionDatos = exports.validacionDatos = function validacionDatos() {
   return [
   // validacion del id 
@@ -19,7 +23,7 @@ var validacionDatos = exports.validacionDatos = function validacionDatos() {
   //validacion de la contaseña
   (0, _expressValidator.check)('contrasena').isLength({
     min: 5
-  }).withMessage('Debe tener minimo 5 caracteres'),
+  }).withMessage('La contrasena debe tener minimo 5 caracteres'),
   //validacion del roll
   (0, _expressValidator.check)('roll').notEmpty(), function (req, res, next) {
     var errors = (0, _expressValidator.validationResult)(req);
