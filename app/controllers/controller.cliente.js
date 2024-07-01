@@ -55,7 +55,7 @@ const mostrarUnCliente = async(req,res) => {
 const actualizarDatos = async (req, res) => {
     
     // Se traen los datos del body
-    const {  nombre, correo, telefono} = req.body;
+    const {  nombre, correo, telefono, contrasena} = req.body;
     const id  = req.params['id']; // Asegúrate de obtener el ID de los parámetros de la ruta
 
     try {
@@ -88,6 +88,29 @@ const actualizarDatos = async (req, res) => {
             } else {
                 return Error(req, res, 400, "No se pudo actualizar el telefono");
             }
+        }
+        
+        if(contrasena){
+            const repp = await db.query(`CALL SP_VERIFICAR_CUENTA_CLIENTE('${id}')`)
+
+            if(repp[0][0] != 0){
+                // se comparan las contraseñas 
+                const compare = await bcrypt.compare(contrasena, repp[0][0][0].contrasena)
+
+                // mensaje de clave errada 
+                if(!compare){
+                    Error(req, res,400, "Clave errada")
+                }
+        
+                const respuesta = await db.query(`CALL SP_DESACTIVAR_CUENTA_CLIENTE('${id}')`);
+
+                if (respuesta[0].affectedRows == 1) {
+                    return Success(req, res, 200, "Su cuenta ha sido desactivada");
+                } else {
+                    return Error(req, res, 400, "No se pudo desactivar su cuenta");
+                }
+            }
+    
         }
 
 
