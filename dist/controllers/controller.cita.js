@@ -7,7 +7,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.reprogramarCita = exports.mostrarCita = exports.crearCita = exports.cancelarCita = void 0;
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
-var _db = require("../config/.db.mysql");
+var _db = require("../config/db.mysql");
 var _msj = require("../message/msj");
 /**
  * Controladores de las citas

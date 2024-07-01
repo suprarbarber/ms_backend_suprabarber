@@ -8,7 +8,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.registro = exports.loguear = void 0;
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
-var _db = require("../config/.db.mysql");
+var _db = require("../config/db.mysql");
 var _msj = require("../message/msj");
 var _bcrypt = _interopRequireWildcard(require("bcrypt"));
 var _jsonwebtoken = _interopRequireDefault(require("jsonwebtoken"));

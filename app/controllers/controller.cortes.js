@@ -3,7 +3,7 @@
  * @module Controladores_cortes
  */
 
-import { db } from "../config/.db.mysql"
+import { db } from "../config/db.mysql"
 import { Success, Error } from "../message/msj"
 
 /**

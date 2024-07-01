@@ -19,18 +19,8 @@ var _ouath = require("../middleware/ouath");
 var rutaCliente = (0, _express.Router)();
 rutaCliente.get("/cliente", _controller.mostrarTodosClientes);
 rutaCliente.get("/cliente/:id", _controller.mostrarUnCliente);
-
-// para atualizar el telefono 
-rutaCliente.put("/cliente", _controller.actualizarTelefono);
-// para atualizar el nombre
-rutaCliente.put("/cliente", _controller.actualizarNombre);
-// para atualizar la contasena
-rutaCliente.put("/cliente", _controller.actualizarContra);
-// para atualizar el correo
-rutaCliente.put("/cliente", _controller.actualizarCorreo);
-// para eliminar la cuenta 
-rutaCliente.put("/cliente", _controller.eliminarCuenta);
-
+// para atualizar datos
+rutaCliente.put("/cliente/:id", _controller.actualizarDatos);
 // para validar el token 
 rutaCliente.post("/oauth", _ouath.verifyToken, _controller.validarToken);
 var _default = exports["default"] = rutaCliente;

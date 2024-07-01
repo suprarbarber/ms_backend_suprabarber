@@ -3,7 +3,7 @@
  * @module Controlador_turno
  */
 
-import { db } from "../config/.db.mysql";
+import { db } from "../config/db.mysql";
 import { Error, Success } from "../message/msj";
 
 

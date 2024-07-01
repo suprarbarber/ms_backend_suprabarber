@@ -3,7 +3,7 @@
  * @module Controladores_productos
  */
 
-import { db } from "../config/.db.mysql"
+import { db } from "../config/db.mysql"
 import { Success, Error } from "../message/msj"
 
 /**

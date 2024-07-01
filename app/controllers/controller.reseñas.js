@@ -3,7 +3,7 @@
  * @module Controladores_reseñas
  */
 
-import { db } from "../config/.db.mysql";
+import { db } from "../config/db.mysql";
 import { Error, Success } from "../message/msj";
 
 /**

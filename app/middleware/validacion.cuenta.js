@@ -1,5 +1,5 @@
 import { Error } from "../message/msj";
-import { db } from "../config/.db.mysql";
+import { db } from "../config/db.mysql";
 
 /**
  * Esta funcion sirve para validar si la cuenta ya existe

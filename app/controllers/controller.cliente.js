@@ -3,7 +3,7 @@
  * @module Controladores_clientes
  */
 
-import { db } from "../config/.db.mysql"
+import { db } from "../config/db.mysql"
 import { Error, Success } from "../message/msj"
 import bcrypt from "bcrypt";
 
@@ -99,7 +99,7 @@ const actualizarDatos = async (req, res) => {
 
                 // mensaje de clave errada 
                 if(!compare){
-                    Error(req, res,400, "Clave errada")
+                    return Error(req, res,400, "Clave errada")
                 }
         
                 const respuesta = await db.query(`CALL SP_DESACTIVAR_CUENTA_CLIENTE('${id}')`);
