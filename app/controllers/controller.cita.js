@@ -62,7 +62,7 @@ const mostrarCita = async(req, res) => {
 
 const reprogramarCita = async(req, res) => {
     const {id_reserva, id_turno, id_fecha} = req.body;
-    const fecha = `2024-07-${id_fecha}T05:00:00.000Z`
+    const fecha = `2024-07-${id_fecha}`
 
     try {
         const respuesta = await db.query(`CALL SP_REPROGRAMAR_CITA('${id_reserva}', '${id_turno}','${fecha}')`);

@@ -108,7 +108,7 @@ var reprogramarCita = exports.reprogramarCita = /*#__PURE__*/function () {
       while (1) switch (_context3.prev = _context3.next) {
         case 0:
           _req$body2 = req.body, id_reserva = _req$body2.id_reserva, id_turno = _req$body2.id_turno, id_fecha = _req$body2.id_fecha;
-          fecha = "2024-07-".concat(id_fecha, "T05:00:00.000Z");
+          fecha = "2024-07-".concat(id_fecha);
           _context3.prev = 2;
           _context3.next = 5;
           return _db.db.query("CALL SP_REPROGRAMAR_CITA('".concat(id_reserva, "', '").concat(id_turno, "','").concat(fecha, "')"));

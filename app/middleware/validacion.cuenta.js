@@ -14,7 +14,7 @@ const validarCuenta = async(req, res, next) => {
         const repp = await db.query(`CALL SP_VERIFICAR_EXISTENCIA_DE_CUENTA('${id}', '${correo}')`);
 
         if(!repp[0][0] == 0){
-            Error(req, res, 401, "El usuario ya existe")
+            Error(req, res, 401, "El usuario ya existe, no")
             console.log(repp[0][0]);
         }
 

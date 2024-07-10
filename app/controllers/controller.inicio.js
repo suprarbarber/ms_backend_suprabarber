@@ -27,7 +27,7 @@ config()
             const repp = await db.query(`CALL SP_VERIFICAR_EXISTENCIA_DE_CUENTA('${id}', '${correo}')`);
     
             if(repp[0][0] != 0){
-                Error(req, res, 401, "El usuario ya existe")
+                Error(req, res, 402, "El usuario ya existe")
                 return;
             }
     
@@ -82,7 +82,24 @@ config()
  const loguear = async(req, res) => {
     const { correo, contrasena} = req.body;
     
+    if(correo === '' && contrasena === ''){
+        Error(req, res, 401, "No hay datos")
+        return; 
+    }else{
+        if (correo === ''){
+            Error(req, res, 401, "Falta el correo")
+            return;
+        }else{
+            if (contrasena === ''){
+                Error(req, res, 401, "Falta el contra")
+                return; 
+            }
+        }
+    }
+    
+
     try{
+
 
         const repp = await db.query(`CALL SP_LOGUEAR_ADMIN('${correo}')`)
 
@@ -92,7 +109,7 @@ config()
 
             // mensaje de clave errada 
             if(!compare){
-                Error(req, res,400, "Clave errada")
+                Error(req, res,401, "Clave errada")
             }
     
             Success(req, res, 200, "Acceso no perimitido");
@@ -102,8 +119,13 @@ config()
         const respuesta = await db.query(`CALL SP_LOGUEAR_USUARIO('${correo}')`)
         console.log(respuesta[0]);
         //para decir si el usuario no existe
+
         if (respuesta[0][0] == 0){
-            Error(req, res, 400, "El usuario no existe todavia ")
+            Error(req, res, 405, "Correo Errado")
+            return;
+        }
+        if (respuesta[0][0] == 0){
+            Error(req, res, 405, "Correo Errado")
             return;
         }
             
@@ -111,7 +133,7 @@ config()
         const match = await bcrypt.compare(contrasena, respuesta[0][0][0].contrasena)
             
         if(!match){
-            Error(req, res, 401, "Contraseña errada")
+            Error(req, res, 406, "Contraseña errada")
             return;
         }
         console.log(3);
