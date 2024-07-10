@@ -50,7 +50,7 @@ var registro = exports.registro = /*#__PURE__*/function () {
             _context.next = 11;
             break;
           }
-          (0, _msj.Error)(req, res, 401, "El usuario ya existe");
+          (0, _msj.Error)(req, res, 402, "El usuario ya existe");
           return _context.abrupt("return");
         case 11:
           _context.next = 13;
@@ -119,50 +119,78 @@ var loguear = exports.loguear = /*#__PURE__*/function () {
       while (1) switch (_context2.prev = _context2.next) {
         case 0:
           _req$body2 = req.body, correo = _req$body2.correo, contrasena = _req$body2.contrasena;
-          _context2.prev = 1;
-          _context2.next = 4;
-          return _db.db.query("CALL SP_LOGUEAR_ADMIN('".concat(correo, "')"));
-        case 4:
-          repp = _context2.sent;
-          if (!(repp[0][0] != 0)) {
-            _context2.next = 12;
+          if (!(correo === '' && contrasena === '')) {
+            _context2.next = 6;
             break;
           }
-          _context2.next = 8;
+          (0, _msj.Error)(req, res, 401, "No hay datos");
+          return _context2.abrupt("return");
+        case 6:
+          if (!(correo === '')) {
+            _context2.next = 11;
+            break;
+          }
+          (0, _msj.Error)(req, res, 401, "Falta el correo");
+          return _context2.abrupt("return");
+        case 11:
+          if (!(contrasena === '')) {
+            _context2.next = 14;
+            break;
+          }
+          (0, _msj.Error)(req, res, 401, "Falta el contra");
+          return _context2.abrupt("return");
+        case 14:
+          _context2.prev = 14;
+          _context2.next = 17;
+          return _db.db.query("CALL SP_LOGUEAR_ADMIN('".concat(correo, "')"));
+        case 17:
+          repp = _context2.sent;
+          if (!(repp[0][0] != 0)) {
+            _context2.next = 25;
+            break;
+          }
+          _context2.next = 21;
           return _bcrypt["default"].compare(contrasena, repp[0][0][0].contrasena);
-        case 8:
+        case 21:
           _compare = _context2.sent;
           // mensaje de clave errada 
           if (!_compare) {
-            (0, _msj.Error)(req, res, 400, "Clave errada");
+            (0, _msj.Error)(req, res, 401, "Clave errada");
           }
           (0, _msj.Success)(req, res, 200, "Acceso no perimitido");
           return _context2.abrupt("return");
-        case 12:
-          _context2.next = 14;
+        case 25:
+          _context2.next = 27;
           return _db.db.query("CALL SP_LOGUEAR_USUARIO('".concat(correo, "')"));
-        case 14:
+        case 27:
           respuesta = _context2.sent;
           console.log(respuesta[0]);
           //para decir si el usuario no existe
           if (!(respuesta[0][0] == 0)) {
-            _context2.next = 19;
+            _context2.next = 32;
             break;
           }
-          (0, _msj.Error)(req, res, 400, "El usuario no existe todavia ");
+          (0, _msj.Error)(req, res, 405, "Correo Errado");
           return _context2.abrupt("return");
-        case 19:
-          _context2.next = 21;
+        case 32:
+          if (!(respuesta[0][0] == 0)) {
+            _context2.next = 35;
+            break;
+          }
+          (0, _msj.Error)(req, res, 405, "Correo Errado");
+          return _context2.abrupt("return");
+        case 35:
+          _context2.next = 37;
           return _bcrypt["default"].compare(contrasena, respuesta[0][0][0].contrasena);
-        case 21:
+        case 37:
           match = _context2.sent;
           if (match) {
-            _context2.next = 25;
+            _context2.next = 41;
             break;
           }
-          (0, _msj.Error)(req, res, 401, "Contraseña errada");
+          (0, _msj.Error)(req, res, 406, "Contraseña errada");
           return _context2.abrupt("return");
-        case 25:
+        case 41:
           console.log(3);
 
           //token
@@ -178,17 +206,17 @@ var loguear = exports.loguear = /*#__PURE__*/function () {
             id: id
           });
           return _context2.abrupt("return");
-        case 33:
-          _context2.prev = 33;
-          _context2.t0 = _context2["catch"](1);
+        case 49:
+          _context2.prev = 49;
+          _context2.t0 = _context2["catch"](14);
           (0, _msj.Error)(req, res, 500, JSON.stringify({
             message: "Error en el servidor, por favor intentar más tarde"
           }));
-        case 36:
+        case 52:
         case "end":
           return _context2.stop();
       }
-    }, _callee2, null, [[1, 33]]);
+    }, _callee2, null, [[14, 49]]);
   }));
   return function loguear(_x3, _x4) {
     return _ref2.apply(this, arguments);

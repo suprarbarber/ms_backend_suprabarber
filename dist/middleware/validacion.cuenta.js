@@ -28,7 +28,7 @@ var validarCuenta = exports.validarCuenta = /*#__PURE__*/function () {
         case 4:
           repp = _context.sent;
           if (!repp[0][0] == 0) {
-            (0, _msj.Error)(req, res, 401, "El usuario ya existe");
+            (0, _msj.Error)(req, res, 401, "El usuario ya existe, no");
             console.log(repp[0][0]);
           }
           _context.next = 11;
