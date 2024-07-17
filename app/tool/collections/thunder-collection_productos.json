@@ -1,0 +1,69 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "productos",
+    "collectionId": "69c9584c-64db-49c0-a05f-afe4c213bf69",
+    "dateExported": "2024-07-17T14:34:38.013Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "2fee7021-7e27-4cf5-9ae8-b293fd5b7660",
+            "colId": "69c9584c-64db-49c0-a05f-afe4c213bf69",
+            "containerId": "",
+            "name": "mostrar todos productos",
+            "url": "http://localhost:3002/api/producto",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-06-13T20:41:42.435Z",
+            "modified": "2024-06-13T20:41:55.671Z",
+            "headers": []
+        },
+        {
+            "_id": "466bf661-5796-454b-8877-e5ad8d4865dc",
+            "colId": "69c9584c-64db-49c0-a05f-afe4c213bf69",
+            "containerId": "",
+            "name": "ELIMINAR PRODUCTO",
+            "url": "http://localhost:3002/api/producto",
+            "method": "DELETE",
+            "sortNum": 20000,
+            "created": "2024-06-22T00:06:33.541Z",
+            "modified": "2024-06-22T00:07:00.929Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\" : 6\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "2912255e-f625-4a28-8114-2c1b89eca714",
+            "colId": "69c9584c-64db-49c0-a05f-afe4c213bf69",
+            "containerId": "",
+            "name": "mostrar un producto",
+            "url": "http://localhost:3002/api/producto/1",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2024-06-24T23:53:15.879Z",
+            "modified": "2024-06-24T23:54:54.166Z",
+            "headers": []
+        },
+        {
+            "_id": "04e0c089-2dd6-4a9f-a9a7-69a27215e242",
+            "colId": "69c9584c-64db-49c0-a05f-afe4c213bf69",
+            "containerId": "",
+            "name": "crear producto",
+            "url": "http://localhost:3002/api/producto",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2024-06-25T00:00:57.000Z",
+            "modified": "2024-06-25T00:04:00.038Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\" : \"Cuchillas\",\n  \"descripcion\" : \"Afiladas\",\n  \"stock\" : 36\n}",
+                "form": []
+            }
+        }
+    ],
+    "ref": "Yx46eRKUNpBKYs4npUhELmVbwuZVvTqKsZek5AiysasxkhTJrUpUtT_SOxO6CP1BjOGmXBTGgLAi4pFoP3kqrw"
+}

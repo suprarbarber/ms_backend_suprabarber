@@ -1,0 +1,23 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "turnos",
+    "collectionId": "dbc45a2e-2dd0-434c-90fe-32839cbf1562",
+    "dateExported": "2024-07-17T14:35:19.576Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "57a69815-da17-4f3b-9ee0-930c8dba778a",
+            "colId": "dbc45a2e-2dd0-434c-90fe-32839cbf1562",
+            "containerId": "",
+            "name": "ver turnos",
+            "url": "http://localhost:3002/api/turno",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-06-29T17:07:42.962Z",
+            "modified": "2024-06-29T17:07:57.245Z",
+            "headers": []
+        }
+    ],
+    "ref": "CE3-c79Y4GZl6RDbtKvuxXCvyqXRonVCWBP_T1A7qYL-XOCYTwbcrMzWjTnypABq_P3B903LE4YzDst1WhFx-g"
+}

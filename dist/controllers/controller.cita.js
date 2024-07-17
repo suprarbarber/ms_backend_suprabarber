@@ -96,7 +96,7 @@ var mostrarCita = exports.mostrarCita = /*#__PURE__*/function () {
 }();
 
 /**
- * Esta funcion es para reprogramar una cita
+ * Esta  funcion es para reprogramar una cita
  * @param {*} req captura peticiones en HTML
  * @param {*} res envia respuestas en HTML
  */

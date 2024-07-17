@@ -1,0 +1,69 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "clientes supra",
+    "collectionId": "3d498f09-2670-4d2a-b19f-d182a4d4afc8",
+    "dateExported": "2024-07-17T14:34:17.556Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "d06a59f0-d257-4db8-8371-85bf49d2078b",
+            "colId": "3d498f09-2670-4d2a-b19f-d182a4d4afc8",
+            "containerId": "",
+            "name": "mostrar clientes",
+            "url": "http://localhost:3002/api/cliente",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2024-06-06T01:21:46.090Z",
+            "modified": "2024-06-24T13:05:32.281Z",
+            "headers": []
+        },
+        {
+            "_id": "b2ddbb89-4af0-4e22-97d6-b1a5438ffd3c",
+            "colId": "3d498f09-2670-4d2a-b19f-d182a4d4afc8",
+            "containerId": "",
+            "name": "mostrar un cliente",
+            "url": "http://localhost:3002/api/cliente/989",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2024-06-06T01:58:05.717Z",
+            "modified": "2024-06-29T00:18:57.549Z",
+            "headers": []
+        },
+        {
+            "_id": "fc3a523f-9372-4f5f-9f00-d3857bd1cf02",
+            "colId": "3d498f09-2670-4d2a-b19f-d182a4d4afc8",
+            "containerId": "",
+            "name": "eliminar cuenta",
+            "url": "http://localhost:3002/api/cliente/989",
+            "method": "PUT",
+            "sortNum": 130000,
+            "created": "2024-06-06T23:04:37.173Z",
+            "modified": "2024-07-01T17:41:08.335Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"contrasena\" : \"miamuui\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "907165c2-9595-4266-8abf-a7afff686fde",
+            "colId": "3d498f09-2670-4d2a-b19f-d182a4d4afc8",
+            "containerId": "",
+            "name": "editar nombre",
+            "url": "http://localhost:3002/api/cliente/989",
+            "method": "PUT",
+            "sortNum": 140000,
+            "created": "2024-07-01T14:07:16.967Z",
+            "modified": "2024-07-01T14:17:42.090Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"telefono\" : \"5004\"\n}",
+                "form": []
+            }
+        }
+    ],
+    "ref": "GG0Od3-p8xYogkdG-aMRzETH2rP9UVHSkCrej18kyTc_n4ygbnu722XcPk8OUKARQpLxOe0CYlf1WmPT98LeMg"
+}

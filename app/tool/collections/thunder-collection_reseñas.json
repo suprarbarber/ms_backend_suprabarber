@@ -1,0 +1,57 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "reseñas",
+    "collectionId": "5d275a58-8c30-4eb0-b977-786823c836b9",
+    "dateExported": "2024-07-17T14:34:57.734Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "81046340-1491-41a6-85b2-4caf245f3864",
+            "colId": "5d275a58-8c30-4eb0-b977-786823c836b9",
+            "containerId": "",
+            "name": "crear reseñas",
+            "url": "http://localhost:3002/api/resena",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-06-25T18:11:02.528Z",
+            "modified": "2024-06-29T00:43:20.208Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\" : 989,\n  \"comentario\" : \"Me gusta encanta\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "7517ca8e-83b6-48d8-850f-ce9d83e87fa2",
+            "colId": "5d275a58-8c30-4eb0-b977-786823c836b9",
+            "containerId": "",
+            "name": "mostrar reseñas",
+            "url": "http://localhost:3002/api/resena",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-06-25T18:19:43.174Z",
+            "modified": "2024-06-25T18:19:50.123Z",
+            "headers": []
+        },
+        {
+            "_id": "37963739-2645-4ed6-90e0-048b4f6ecb2d",
+            "colId": "5d275a58-8c30-4eb0-b977-786823c836b9",
+            "containerId": "",
+            "name": "wliminar reseña",
+            "url": "http://localhost:3002/api/resena",
+            "method": "DELETE",
+            "sortNum": 30000,
+            "created": "2024-06-25T18:20:05.106Z",
+            "modified": "2024-06-29T00:43:46.755Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\" : 989,\n  \"id_resena\" : 14\n}",
+                "form": []
+            }
+        }
+    ],
+    "ref": "ylec1_9VFFzWZXx4Jb7vKtfhfW1o3_LeOP1yxyhhpGxsoxQ1GNIgoJ8mDgF9khddwhJl4cBLwp2ioErwLOARbQ"
+}

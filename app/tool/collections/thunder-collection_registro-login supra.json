@@ -1,0 +1,45 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "registro-login supra",
+    "collectionId": "1b036597-cd15-4952-8534-968a1fc94054",
+    "dateExported": "2024-07-17T14:34:31.676Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "9e0bdb78-1e60-4a26-8372-1d8a05cb0424",
+            "colId": "1b036597-cd15-4952-8534-968a1fc94054",
+            "containerId": "",
+            "name": "registrar user",
+            "url": "http://localhost:3002/api/registro",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-06-03T14:20:35.985Z",
+            "modified": "2024-07-08T22:09:14.824Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\" : 989,\n  \"nombre\" : \"Loro\",\n  \"telefono\" : \"31573\",\n  \"correo\" : \"loro@gmail.com\",\n  \"contrasena\" : \"loro123\",\n  \"roll\" : \"cliente\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "d4666034-7160-4195-badf-b137587285f6",
+            "colId": "1b036597-cd15-4952-8534-968a1fc94054",
+            "containerId": "",
+            "name": "loguear user",
+            "url": "http://localhost:3002/api/login",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-06-04T01:35:21.287Z",
+            "modified": "2024-07-09T02:34:02.707Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"correo\" : \"loro@gmail.co\",\n  \"contrasena\" : \"loro123\"\n}",
+                "form": []
+            }
+        }
+    ],
+    "ref": "k7WOR55V6rJFtRRDmVEFcoMTvUnBKVwu9brLKqWYj4JIDiuFT1n8Hc3ZNTvfFV92daqnbzdYpdRu19OEKx9djg"
+}

@@ -1,0 +1,76 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "citas",
+    "collectionId": "be57ec19-63c6-495f-8b67-1437ded6a175",
+    "dateExported": "2024-07-17T14:35:11.890Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "bbb29042-6494-4efa-a494-6693621ae0bf",
+            "colId": "be57ec19-63c6-495f-8b67-1437ded6a175",
+            "containerId": "",
+            "name": "crear cita",
+            "url": "http://localhost:3002/api/cita",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-06-25T20:29:15.605Z",
+            "modified": "2024-07-01T20:20:00.678Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\" :989,\n  \"id_barbero\" : 1000414627,\n  \"id_turno\" : 1,\n  \"id_servicio\" : 1,\n  \"id_corte\" : 1,\n  \"id_fecha\" : 14\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "f1bddf50-87b6-4677-8199-7dbc8841ff96",
+            "colId": "be57ec19-63c6-495f-8b67-1437ded6a175",
+            "containerId": "",
+            "name": "reprogramar cita",
+            "url": "http://localhost:3002/api/cita",
+            "method": "PUT",
+            "sortNum": 20000,
+            "created": "2024-06-25T21:52:16.594Z",
+            "modified": "2024-06-29T15:39:55.696Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id_reserva\": 37,\n  \"id_turno\" : 1,\n  \"id_fecha\" : 12\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "0f5e74e4-48ba-4123-b510-4c3c9ff08dbd",
+            "colId": "be57ec19-63c6-495f-8b67-1437ded6a175",
+            "containerId": "",
+            "name": "cancelar cita",
+            "url": "http://localhost:3002/api/cita/37",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2024-06-25T21:57:20.759Z",
+            "modified": "2024-06-29T14:16:21.579Z",
+            "headers": []
+        },
+        {
+            "_id": "9da46a4c-9a07-4f0c-9d8e-5e96de08e440",
+            "colId": "be57ec19-63c6-495f-8b67-1437ded6a175",
+            "containerId": "",
+            "name": "mostrar mis citas",
+            "url": "http://localhost:3002/api/cita?id=989",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2024-06-29T03:50:07.351Z",
+            "modified": "2024-06-29T03:50:41.212Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "989",
+                    "isPath": false
+                }
+            ]
+        }
+    ],
+    "ref": "PoOk2tAGZYT5gcNjkJ537eJeoi4t_AodKJqVhILIBTic2elmecT_ukie96GzETEFVKUxeUDJF5lHM8wVTnuTyg"
+}
