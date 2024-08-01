@@ -5,7 +5,7 @@
 
 import { db } from "../config/db.mysql"
 import { Success, Error } from "../message/msj"
-import bcrypt, { compare } from "bcrypt";
+import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { config } from "dotenv";
 config()

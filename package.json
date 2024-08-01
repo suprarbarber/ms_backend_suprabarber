@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-
   "scripts": {
     "swagger-dev": "node ./app/tool/swagger.js",
-    "doc" : "jsdoc -c jsdoc.json",
+    "doc": "jsdoc -c jsdoc.json",
     "dev": "nodemon app/index.js --exec babel-node",
     "build": "babel app --out-dir dist",
     "swagger": "node ./dist/tool/swagger.js",
@@ -16,6 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",

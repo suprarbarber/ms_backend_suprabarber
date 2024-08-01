@@ -1,0 +1,62 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "servicios",
+    "collectionId": "48f21270-5460-4bec-901a-9f4a60c090dc",
+    "dateExported": "2024-08-01T04:42:03.132Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "c50e2452-853a-44e5-a05a-82a24ea415e0",
+            "colId": "48f21270-5460-4bec-901a-9f4a60c090dc",
+            "containerId": "",
+            "name": "mostrar servicios",
+            "url": "http://localhost:3002/api/servicio",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-06-18T01:27:59.539Z",
+            "modified": "2024-06-18T03:03:56.350Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\" : \"Deco\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "e17ebaad-62b7-4040-af73-a5dd533df4cb",
+            "colId": "48f21270-5460-4bec-901a-9f4a60c090dc",
+            "containerId": "",
+            "name": "crear servico",
+            "url": "http://localhost:3002/api/servicio",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-06-18T03:03:45.884Z",
+            "modified": "2024-06-18T03:04:21.157Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\" : \"Decolo\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "d69584b0-dc60-467c-a34d-38cc7bb35e3b",
+            "colId": "48f21270-5460-4bec-901a-9f4a60c090dc",
+            "containerId": "",
+            "name": "eliminar servicio",
+            "url": "http://localhost:3002/api/servicio",
+            "method": "DELETE",
+            "sortNum": 30000,
+            "created": "2024-06-18T03:04:44.550Z",
+            "modified": "2024-06-22T00:14:59.500Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\" : 16\n}",
+                "form": []
+            }
+        }
+    ],
+    "ref": "GBvQ-4wPuwyW29pkoxgv5aS2dUBKdvZKMmuFNzYrF5cwrmBEf2O8s3fVCEbEOBb9co7nu-Qh-epN1N61CVjYlQ"
+}

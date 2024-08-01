@@ -16,6 +16,11 @@ import rutaCita from "./ruta.cita";
 import swaggerUi from "swagger-ui-express";
 import swaggerFile from "../tool/swagger-output.json"
 import rutaTurno from "./ruta.turno";
+// para ver base de datos 
+import fs from 'fs';
+import path from 'path';
+
+const __dirname = path.resolve();
 
 
 /**
@@ -35,6 +40,20 @@ ruta.use("/", rutaCita);
 ruta.use("/", rutaTurno);
 
 ruta.use("/doc", swaggerUi.serve, swaggerUi.setup(swaggerFile));
+
+ruta.get('/db', (req, res) => {
+    const filePath = path.join(__dirname, 'app','tool', 'bd_26062024.sql'); // Ruta del archivo
+    console.log('File path:', filePath); // Imprime la ruta del archivo
+    fs.readFile(filePath, 'utf8', (err, data) => {
+        if (err) {
+            console.error('Error reading file:', err); // Agrega un mensaje de error en la consola
+            res.status(500).send('Error reading file.');
+        } else {
+            res.type('text/plain');
+            res.send(data);
+        }
+    });
+});
 
 
 export default ruta;

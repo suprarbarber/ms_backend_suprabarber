@@ -1,0 +1,52 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "barberos",
+    "collectionId": "7264ed77-fb2a-49ec-9b0c-a3d7e03bf985",
+    "dateExported": "2024-08-01T04:42:21.160Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "814f6989-c49a-4640-826e-34d0cfdb820c",
+            "colId": "7264ed77-fb2a-49ec-9b0c-a3d7e03bf985",
+            "containerId": "",
+            "name": "mostrar barberos",
+            "url": "http://localhost:3002/api/barbero",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-06-25T18:51:54.728Z",
+            "modified": "2024-06-25T18:52:23.418Z",
+            "headers": []
+        },
+        {
+            "_id": "14df41fd-ec5d-4422-8c02-84d7df670335",
+            "colId": "7264ed77-fb2a-49ec-9b0c-a3d7e03bf985",
+            "containerId": "",
+            "name": "mostra un barbero",
+            "url": "http://localhost:3002/api/barbero/555",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-06-25T18:52:38.245Z",
+            "modified": "2024-06-29T02:57:10.125Z",
+            "headers": []
+        },
+        {
+            "_id": "eb6606a2-333e-487f-8e5c-15eec7729d8c",
+            "colId": "7264ed77-fb2a-49ec-9b0c-a3d7e03bf985",
+            "containerId": "",
+            "name": "modificar correo barbero",
+            "url": "http://localhost:3002/api/barbero",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2024-06-25T18:56:01.251Z",
+            "modified": "2024-06-25T18:56:42.022Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": 86788,\n  \"nuevoCorreo\" : \"lore@gmail.com\"\n}",
+                "form": []
+            }
+        }
+    ],
+    "ref": "dg823J6YhgxQ4DXSIu4-IwZOLT8waoDlo0k35XGAO4N8xk12POcblJfdAccYTiZfXeFZKBj5huqIA3CnKC0kuA"
+}

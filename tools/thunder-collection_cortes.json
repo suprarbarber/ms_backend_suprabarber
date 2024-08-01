@@ -1,0 +1,88 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "cortes",
+    "collectionId": "31249e5e-70ae-4a78-9bc1-1f0c6bab5355",
+    "dateExported": "2024-08-01T04:42:09.498Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "57b5ee6f-d732-49c8-b5c4-10faf5c0c628",
+            "colId": "31249e5e-70ae-4a78-9bc1-1f0c6bab5355",
+            "containerId": "",
+            "name": "mostrar cortes servicio",
+            "url": "http://localhost:3002/api/corte?id=1",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-06-18T03:35:56.258Z",
+            "modified": "2024-06-26T14:07:46.100Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "1",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "5611cca9-56a4-4213-b4d9-6370fc0f0ecf",
+            "colId": "31249e5e-70ae-4a78-9bc1-1f0c6bab5355",
+            "containerId": "",
+            "name": "crear cortes",
+            "url": "http://localhost:3002/api/corte",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-06-18T03:37:24.200Z",
+            "modified": "2024-06-18T03:40:30.170Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\" : \"super\",\n  \"id_servicio\" : 2\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "cc945cd3-698f-4cab-8b5a-dbaec2b2ab85",
+            "colId": "31249e5e-70ae-4a78-9bc1-1f0c6bab5355",
+            "containerId": "",
+            "name": "eliminar corte",
+            "url": "http://localhost:3002/api/corte",
+            "method": "DELETE",
+            "sortNum": 30000,
+            "created": "2024-06-18T03:41:07.497Z",
+            "modified": "2024-06-22T00:03:25.498Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\" : \"8\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "cc7a27d7-1af8-44bc-bf8f-a515d8dfe042",
+            "colId": "31249e5e-70ae-4a78-9bc1-1f0c6bab5355",
+            "containerId": "",
+            "name": "mostrar un corte",
+            "url": "http://localhost:3002/api/corte/2",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2024-06-25T00:07:37.447Z",
+            "modified": "2024-06-25T00:07:56.422Z",
+            "headers": []
+        },
+        {
+            "_id": "051a220a-41bc-46b2-84bf-551fe0fd70e7",
+            "colId": "31249e5e-70ae-4a78-9bc1-1f0c6bab5355",
+            "containerId": "",
+            "name": "mostrar todo los cortes",
+            "url": "http://localhost:3002/api/corte",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2024-06-26T13:49:18.652Z",
+            "modified": "2024-06-26T14:02:25.892Z",
+            "headers": []
+        }
+    ],
+    "ref": "YFtHJFeJ08SYdiIvefLopCdxwg1AeQLBctiW44NN-bsMphnp0ZROQ_OgOGtmlrxBN7zEapa7syRXLDddkTiJJQ"
+}
