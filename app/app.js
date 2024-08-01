@@ -23,10 +23,6 @@ app.set("port", process.env.PORT || 3000)
 //rutas
 app.use("/api", ruta);
 
-// para que escuche el puerto en todas las direcciones 
-app.listen(port, '0.0.0.0', () => {
-    console.log(`Server is running on port ${port}`);
-  });
 
 
 export default app;
