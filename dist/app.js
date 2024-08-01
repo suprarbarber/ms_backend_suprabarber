@@ -30,4 +30,9 @@ app.set("port", process.env.PORT || 3000);
 
 //rutas
 app.use("/api", _routes["default"]);
+
+// para que escuche el puerto en todas las direcciones 
+app.listen(port, '0.0.0.0', function () {
+  console.log("Server is running on port ".concat(port));
+});
 var _default = exports["default"] = app;

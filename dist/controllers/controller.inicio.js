@@ -1,7 +1,6 @@
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-var _typeof = require("@babel/runtime/helpers/typeof");
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
@@ -10,11 +9,9 @@ var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"))
 var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
 var _db = require("../config/db.mysql");
 var _msj = require("../message/msj");
-var _bcrypt = _interopRequireWildcard(require("bcrypt"));
+var _bcrypt = _interopRequireDefault(require("bcrypt"));
 var _jsonwebtoken = _interopRequireDefault(require("jsonwebtoken"));
 var _dotenv = require("dotenv");
-function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(e) { return e ? t : r; })(e); }
-function _interopRequireWildcard(e, r) { if (!r && e && e.__esModule) return e; if (null === e || "object" != _typeof(e) && "function" != typeof e) return { "default": e }; var t = _getRequireWildcardCache(r); if (t && t.has(e)) return t.get(e); var n = { __proto__: null }, a = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var u in e) if ("default" !== u && {}.hasOwnProperty.call(e, u)) { var i = a ? Object.getOwnPropertyDescriptor(e, u) : null; i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u]; } return n["default"] = e, t && t.set(e, n), n; }
 /**
  * Controladores de los apartados del home
  * @module Controladores_home
@@ -114,7 +111,7 @@ var registro = exports.registro = /*#__PURE__*/function () {
 
 var loguear = exports.loguear = /*#__PURE__*/function () {
   var _ref2 = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee2(req, res) {
-    var _req$body2, correo, contrasena, repp, _compare, respuesta, match, pyload, token, id;
+    var _req$body2, correo, contrasena, repp, compare, respuesta, match, pyload, token, id;
     return _regenerator["default"].wrap(function _callee2$(_context2) {
       while (1) switch (_context2.prev = _context2.next) {
         case 0:
@@ -152,9 +149,9 @@ var loguear = exports.loguear = /*#__PURE__*/function () {
           _context2.next = 21;
           return _bcrypt["default"].compare(contrasena, repp[0][0][0].contrasena);
         case 21:
-          _compare = _context2.sent;
+          compare = _context2.sent;
           // mensaje de clave errada 
-          if (!_compare) {
+          if (!compare) {
             (0, _msj.Error)(req, res, 401, "Clave errada");
           }
           (0, _msj.Success)(req, res, 200, "Acceso no perimitido");

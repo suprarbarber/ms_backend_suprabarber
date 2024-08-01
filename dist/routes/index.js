@@ -17,12 +17,18 @@ var _ruta8 = _interopRequireDefault(require("./ruta.cita"));
 var _swaggerUiExpress = _interopRequireDefault(require("swagger-ui-express"));
 var _swaggerOutput = _interopRequireDefault(require("../tool/swagger-output.json"));
 var _ruta9 = _interopRequireDefault(require("./ruta.turno"));
+var _fs = _interopRequireDefault(require("fs"));
+var _path = _interopRequireDefault(require("path"));
 /**
  * Rutas del index
  * @module Rutas_index
  */
 
 // swagger
+
+// para ver base de datos 
+
+var _dirname = _path["default"].resolve();
 
 /**
  * Esta son las rutas de mi proyecto
@@ -39,4 +45,17 @@ ruta.use("/", _ruta7["default"]);
 ruta.use("/", _ruta8["default"]);
 ruta.use("/", _ruta9["default"]);
 ruta.use("/doc", _swaggerUiExpress["default"].serve, _swaggerUiExpress["default"].setup(_swaggerOutput["default"]));
+ruta.get('/db', function (req, res) {
+  var filePath = _path["default"].join(_dirname, 'app', 'tool', 'bd_26062024.sql'); // Ruta del archivo
+  console.log('File path:', filePath); // Imprime la ruta del archivo
+  _fs["default"].readFile(filePath, 'utf8', function (err, data) {
+    if (err) {
+      console.error('Error reading file:', err); // Agrega un mensaje de error en la consola
+      res.status(500).send('Error reading file.');
+    } else {
+      res.type('text/plain');
+      res.send(data);
+    }
+  });
+});
 var _default = exports["default"] = ruta;
