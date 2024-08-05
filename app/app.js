@@ -13,6 +13,13 @@ const app = express();
 
 //middleware
 app.use(cors());
+
+app.use(cors({
+    origin: 'https://automatic-enigma-xqqvrxv4w67fv74w-7000.app.github.dev', // Cambia esto por la URL de tu frontend
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
 app.use(morgan('dev'))
 app.use(express.json());
 app.use(express.urlencoded({extended : true}))
